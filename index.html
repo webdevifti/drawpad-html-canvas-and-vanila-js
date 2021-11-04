@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrawPad</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body ondragover="drag_over(event)" ondrop="drop(event)">
+    <header>
+        <nav>
+            <button id="DrawBtn">Paint</button>
+            <button onclick="addCircle()">Add Cirlce</button>
+            <button onclick="addLine()">Draw Line</button>
+            <button class="btn-add-text" onclick="addTextBox()" >Add Text</button>
+            <div class="paint-tools">
+                <button class="btn-cancel-painting" onclick="clear_canvas()" type="button" >Cancel</button>
+                <button class="btn-undo" type="button" onclick="undo_last()">Undo</button>
+                <button class="btn-clear-all" type="button" onclick="clear_canvas()">Clear All</button>
+
+                <span onclick="change_color(this)" class="color-fields" style="background: red;"></span>
+
+                <div onclick="change_color(this)" class="color-fields" style="background: blue;"></div>
+
+                <div onclick="change_color(this)" class="color-fields" style="background: yellow;"></div>
+
+                <div onclick="change_color(this)" class="color-fields" style="background: green;"></div>
+
+                <div onclick="change_color(this)" class="color-fields" style="background: pink;"></div>
+
+                <label>Pick a Color</label>
+                <input type="color" oninput="draw_color = this.value" class="color-picker">
+                <label>Pen Size</label>
+                <input type="range" oninput="draw_width = this.value" min="1" max="100" class="pen-range">
+            </div>
+            <a href="" class="btn-download" download="painting.png">Download</a>
+
+            
+        </nav>
+    </header>
+    <div class="wrapper">
+        <canvas id="canvas"></canvas>
+        <div class="add-text-box"></div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
